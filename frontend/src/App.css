@@ -1,0 +1,92 @@
+
+/*
+ * App.css
+ *
+ * Main styles for the Knowledge Islands application.
+ *
+ * Responsibilities:
+ * - Style the main application container.
+ * - Define the background and typography.
+ * - Center the welcome content.
+ * - Style the game title and welcome message.
+ */
+
+/* Apply styles to the main application container. */
+main {
+  /* Take up the full height of the browser window. */
+  min-height: 100vh;
+
+  /* Use Flexbox to center the content. */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  /* Add spacing between the title and welcome message. */
+  gap: 16px;
+
+  /* Space between the content and the screen edges. */
+  padding: 24px;
+
+  /* Dark space-inspired background. */
+  background: linear-gradient(
+    135deg,
+    #10152f,
+    #25245b,
+    #472b70
+  );
+
+  /* Set the default text color. */
+  color: white;
+
+  /* Use a modern, readable font. */
+  font-family: Arial, sans-serif;
+
+  /* Center the text. */
+  text-align: center;
+}
+
+/* Style the main game title. */
+h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+/* Style the welcome message. */
+p {
+  font-size: 1.2rem;
+  color: #d5d4ed;
+  margin: 0;
+}
+
+#spacer {
+  height: 88px;
+  border-top: 1px solid var(--border);
+  @media (max-width: 1024px) {
+    height: 48px;
+  }
+}
+
+.ticks {
+  position: relative;
+  width: 100%;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: -4.5px;
+    border: 5px solid transparent;
+  }
+
+  &::before {
+    left: 0;
+    border-left-color: var(--border);
+  }
+  &::after {
+    right: 0;
+    border-right-color: var(--border);
+  }
+}
