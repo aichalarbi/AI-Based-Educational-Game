@@ -1,0 +1,51 @@
+{
+  "_note": "BEISPIELDATEN / PLATZHALTER – nur zum Testen des Imports. Echte, fachlich geprüfte Inhalte liefert P4.",
+  "missions": [
+    {
+      "id": "example-mission-1",
+      "title": "[BEISPIEL] Lernen vs. Engagement",
+      "description": "Platzhalter-Mission zum Testen von Backend und Frontend.",
+      "challenges": [
+        {
+          "id": "example-challenge-1",
+          "conceptId": "example-concept-learning-evidence",
+          "title": "[BEISPIEL] Lernnachweis",
+          "prompt": "Welche Beobachtung zeigt am ehesten, dass ein Spieler ein Konzept gelernt hat?",
+          "options": [
+            {"id": "A", "text": "Er hat viele Abzeichen gesammelt."},
+            {"id": "B", "text": "Er kann das Konzept auf eine neue Aufgabe anwenden."},
+            {"id": "C", "text": "Er spielt jeden Tag."}
+          ],
+          "rubric": {
+            "correctOptionId": "B",
+            "correctFeedbackCode": "CORRECT",
+            "incorrectFeedbackCode": "REVIEW_CONCEPT"
+          },
+          "feedbackMessages": {
+            "CORRECT": "Richtig! Anwendung auf neue Aufgaben ist ein Lernnachweis.",
+            "REVIEW_CONCEPT": "Noch nicht. Abzeichen und Spielhäufigkeit messen Engagement, nicht Lernen."
+          }
+        },
+        {
+          "id": "example-challenge-2",
+          "conceptId": "example-concept-feedback",
+          "title": "[BEISPIEL] Feedback",
+          "prompt": "Wann ist Feedback in einem Lernspiel am hilfreichsten?",
+          "options": [
+            {"id": "A", "text": "Direkt nach der Antwort und bezogen auf den Fehler."},
+            {"id": "B", "text": "Erst am Ende des Semesters."}
+          ],
+          "rubric": {
+            "correctOptionId": "A",
+            "correctFeedbackCode": "CORRECT",
+            "incorrectFeedbackCode": "REVIEW_CONCEPT"
+          },
+          "feedbackMessages": {
+            "CORRECT": "Genau – zeitnahes, konkretes Feedback hilft am meisten.",
+            "REVIEW_CONCEPT": "Nicht ganz. Feedback wirkt am besten zeitnah und konkret."
+          }
+        }
+      ]
+    }
+  ]
+}
