@@ -10,7 +10,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from .config import settings
 from .db import init_db
-from .routers import health
+from .routers import attempts, health, missions
 
 
 @asynccontextmanager
@@ -28,6 +28,8 @@ def create_app() -> FastAPI:
         allow_headers=["*"],
     )
     app.include_router(health.router, prefix="/api")
+    app.include_router(missions.router, prefix="/api")
+    app.include_router(attempts.router, prefix="/api")
     return app
 
 
