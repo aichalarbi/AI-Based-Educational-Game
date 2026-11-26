@@ -13,7 +13,10 @@ backend/
     models.py      SQLAlchemy-Tabellen
     schemas.py     Pydantic-Modelle (API-Vertrag, siehe contracts/)
     init_db.py     Schema anlegen
-    routers/       Endpunkte
+    import_content.py  Challenge-JSON in die DB importieren
+    routers/       Endpunkte (health, missions, attempts)
+    services/      Inhaltsimport, Adapter zur learning_engine
+  sample_content/  BEISPIEL-Inhalte (Platzhalter, echte Inhalte liefert P4)
   tests/           pytest
 ```
 
@@ -36,6 +39,24 @@ uvicorn backend.app.main:app --reload --port 8000
 
 - Health-Check: <http://localhost:8000/api/health> → `{"status": "ok"}`
 - Interaktive API-Doku: <http://localhost:8000/docs>
+
+API-Format: [contracts/api.md](../contracts/api.md).
+
+### Inhalte importieren
+
+```sh
+python -m backend.app.import_content backend/sample_content/EXAMPLE_missions.json
+```
+
+Danach z. B. <http://localhost:8000/api/missions/example-mission-1>.
+Die Datei enthält nur **Platzhalter**; echte, geprüfte Inhalte liefert P4 im selben Format.
+
+### Bewertung (learning_engine)
+
+Das Backend bewertet nicht selbst, sondern ruft `learning_engine.evaluate_answer()` (P3) auf –
+siehe `app/services/evaluation.py`. Solange P3s Code noch nicht im Branch ist, wird ein klar
+markierter **STUB** (`app/services/_learning_engine_stub.py`) verwendet und beim Start eine
+Warnung geloggt. Nach dem Merge von P3 kann der Stub gelöscht werden.
 
 Die SQLite-Datei liegt standardmäßig unter `backend/knowledge_islands.db` (nicht im Git).
 
